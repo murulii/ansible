@@ -1,0 +1,35 @@
+---
+- name: intall terrform
+  hosts: localhost
+  become: yes
+  
+
+  tasks:
+    - name: Updateing
+      apt:
+        update_cache: yes
+
+
+    - name: Install unzip
+      apt:
+        name: unzip
+        state: present
+
+
+    - name: download package
+      get_url:
+        url: "https://releases.hashicorp.com/terraform/0.14.10/terraform_0.14.10_linux_amd64.zip"
+        dest: /tmp/terraform.zip
+    - name: Unzip Terraform archive
+      unarchive:
+        src: /tmp/terraform.zip
+        dest: /usr/local/bin/
+        remote_src: yes
+
+    - name: Set Terraform permissions
+      file:
+        path: /usr/local/bin/terraform
+        mode: '+x'
+
+        
+ 
