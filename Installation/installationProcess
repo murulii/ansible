@@ -11,6 +11,6 @@ ssh targetip
 ansible-playbook -i (run hosts file and yaml file)
 ansible-playbook -i hosts jj.yml --syntax-check (check yml syntax before running yaml file)
 ansible-playbook -b (pass root permission to ansible playbook content without become: yes option)
-ansible-galaxy /etc/ansible/roles/apache (create roles structure using this command)
+ansible-galaxy init myrole (create roles structure using this command)
 
 
