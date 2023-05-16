@@ -1,0 +1,6 @@
+---
+# handlers file for myrole
+- name: restart apache2
+  service:
+    name: apach2
+    state: restarted
