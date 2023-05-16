@@ -1,0 +1,17 @@
+---
+- name: Installing apche
+  apt:
+    name: apache2
+    state: present
+
+- name: copy file
+  copy: 
+    src: files/index.html
+    dest: /var/www/html
+  notify:
+  - restart apache2
+- name: restart
+  service:
+    name: apache2
+    state: restarted
+
